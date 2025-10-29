@@ -1,60 +1,655 @@
-## Olá, IA! Vamos criar um site!
+<!DOCTYPE html> <!-- Isso diz ao navegador que estamos usando a versão mais recente do HTML (HTML5) -->
 
-**Seu Papel:** Você é um programador front-end sênior e, ao mesmo tempo, um professor de programação muito paciente e didático. Sua missão é me ajudar a criar meu primeiro site.
+<!-- A tag <html> é a raiz de todo o documento. O 'lang="pt-br"' ajuda o navegador a entender que o site está em Português do Brasil. -->
+<html lang="pt-br">
 
-**Minha Situação:** Eu sou um aluno do primeiro ano do ensino médio e estou começando a aprender programação. Eu ainda não sei quase nada de código, então preciso que você me ajude!
+<!-- A tag <head> (cabeça) contém informações "meta" sobre o site, que não são vistas diretamente na página, mas são importantes. -->
+<head>
+    <!-- 'charset="UTF-8"' garante que o navegador mostre caracteres especiais, como acentos (ç, á, é), corretamente. -->
+    <meta charset="UTF-8">
+    
+    <!-- Esta tag é SUPER importante! Ela ajusta o site para telas de dispositivos móveis (celulares), garantindo que ele não pareça "quebrado". -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- <title> define o texto que aparece na aba do navegador. -->
+    <title>Coffee with Jesus - Café & Livraria</title>
 
-**A Tarefa:** Crie o código-fonte para um site "divertido" ou "legal" em um **único arquivo HTML**.
+    <!-- A tag <style> é onde colocamos todo o nosso código CSS, que é responsável pela aparência, cores e layout do site. -->
+    <style>
+        /* * 'body' é o seletor para o corpo inteiro da página.
+         * Estamos definindo regras gerais aqui.
+        */
+        body {
+            /* 'font-family' define a fonte (tipo de letra) do site. 'Arial' é uma fonte limpa e segura, e 'sans-serif' é a alternativa. */
+            font-family: Arial, sans-serif;
+            
+            /* 'margin: 0;' remove qualquer margem padrão que o navegador coloca, para termos controle total. */
+            margin: 0;
+            
+            /* 'padding: 0;' remove qualquer preenchimento interno padrão. */
+            padding: 0;
+            
+            /* 'background-color' define a cor de fundo. Usamos um tom de azul bem clarinho (#f0f8ff), como você pediu (fundo claro, tons de azul). */
+            background-color: #f0f8ff; /* Isso é um "AliceBlue", um azul bem pálido */
+            
+            /* 'color' define a cor padrão do texto. Usamos um azul escuro (#0a2a4d) em vez de preto puro, fica mais suave. */
+            color: #0a2a4d;
+        }
 
----
+        /* * '.container' é uma "classe" que criamos. Vamos usá-la para embrulhar nosso conteúdo.
+         * O ponto (.) na frente significa que é uma classe.
+        */
+        .container {
+            /* 'max-width' define a largura máxima. Isso impede que o site fique "esticado" demais em telas grandes. */
+            max-width: 900px;
+            
+            /* 'margin: 0 auto;' é um truque para centralizar o container na página (0 de margem em cima/baixo, 'auto' nas laterais). */
+            margin: 0 auto;
+            
+            /* 'padding' adiciona um espaço interno, para o conteúdo não grudar nas bordas da tela (especialmente no celular). */
+            padding: 20px;
+        }
 
-### 📋 Requisitos Obrigatórios (Muito Importante!)
+        /* * Estilizando o <header> (cabeçalho) da nossa página.
+        */
+        header {
+            /* 'text-align: center;' centraliza todo o texto dentro do cabeçalho. */
+            text-align: center;
+            
+            /* 'padding' dá um respiro, um espaço interno. 60px em cima/baixo, 20px nas laterais. */
+            padding: 60px 20px;
+            
+            /* 'background-color' para o cabeçalho. Usamos um tom de ciano/azul médio (#00bfff - DeepSkyBlue). */
+            background-color: #00bfff;
+            
+            /* 'color' define a cor do texto do cabeçalho. 'white' (branco) contrasta bem com o fundo azul. */
+            color: white;
+            
+            /* 'border-radius' arredonda os cantos. Aqui estamos arredondando só os cantos de baixo. */
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            
+            /* 'box-shadow' adiciona uma sombra sutil, dando um efeito 3D. */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-1.  **Arquivo Único:** TODO o código (HTML, CSS e JavaScript) deve estar em **UM ÚNICO ARQUIVO**.
-    * O CSS (estilos) deve estar dentro de uma tag `<style>` no `<head>`.
-    * O JavaScript (interações) deve estar dentro de uma tag `<script>` no final do `<body>`.
-    * Não use NENHUM link para arquivos externos (sem `import`, sem `<link rel="stylesheet">` para outro arquivo, sem `<script src="...">` para outra biblioteca).
+        /* Estilizando o <h1> (título principal) dentro do <header> */
+        header h1 {
+            /* 'margin: 0;' remove a margem padrão do h1 para ele se ajustar melhor. */
+            margin: 0;
+            
+            /* 'font-size' define o tamanho da fonte. '2.5em' é 2.5 vezes o tamanho da fonte normal. */
+            font-size: 2.5em;
+        }
 
-2.  **MUITOS Comentários (A Parte Mais Importante):**
-    * Eu preciso aprender! Comente **TUDO**.
-    * No HTML, explique o que cada tag faz. Ex: `` ou ``.
-    * No CSS, explique o que cada propriedade faz. Ex: `/* 'background-color' define a cor do fundo */` ou `/* 'font-size' muda o tamanho do texto */`.
-    * No JavaScript (se você adicionar), explique a lógica linha por linha. Ex: `// Esta linha encontra o botão na página pelo seu ID` ou `// Aqui, dizemos ao botão para "ouvir" um clique`.
-    * **Todos os comentários devem ser em Português do Brasil** e super fáceis de entender.
+        /* Estilizando a barra de navegação <nav> */
+        nav {
+            /* 'display: flex;' é um modo de layout moderno. Ele coloca os itens (nossos links) em linha, um ao lado do outro. */
+            display: flex;
+            
+            /* 'justify-content: center;' centraliza os links horizontalmente dentro do <nav>. */
+            justify-content: center;
+            
+            /* 'background-color' para a barra de navegação. Um azul um pouco mais escuro que o fundo. */
+            background-color: #e0f0ff;
+            
+            /* 'padding' para dar espaço. */
+            padding: 10px;
+            
+            /* 'border-radius' para arredondar os cantos. */
+            border-radius: 10px;
+            
+            /* 'margin-top' adiciona um espaço *fora* do elemento, separando-o do cabeçalho. */
+            margin-top: 20px;
+        }
 
----
+        /* Estilizando os links <a> dentro do <nav> */
+        nav a {
+            /* 'color' da fonte. Um azul forte para os links. */
+            color: #005a9c;
+            
+            /* 'padding' define o tamanho "clicável" do botão. */
+            padding: 10px 20px;
+            
+            /* 'text-decoration: none;' remove o sublinhado padrão dos links. */
+            text-decoration: none;
+            
+            /* 'font-weight: bold;' deixa o texto em negrito. */
+            font-weight: bold;
+            
+            /* 'border-radius' para arredondar os links, fazendo-os parecerem botões. */
+            border-radius: 8px;
+            
+            /* 'margin' para espaçar os botões um do outro. */
+            margin: 0 5px;
+            
+            /* 'transition' cria uma animação suave. Quando mudarmos a cor (no :hover), ela vai mudar em 0.3 segundos. */
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-### 🎨 Minhas Preferências (Aqui é onde eu personalizo!)
+        /* * ':hover' é uma "pseudo-classe". Isso define o estilo quando o mouse está EM CIMA do link.
+        */
+        nav a:hover {
+            /* 'background-color' muda quando o mouse passa por cima. */
+            background-color: #007bff; /* Um azul primário vibrante */
+            
+            /* 'color' do texto também muda para branco, para contrastar. */
+            color: white;
+        }
+        
+        /* * Este é um estilo especial para o link da aba "ativa".
+         * Vamos adicionar essa classe '.active' usando JavaScript.
+        */
+        nav a.active {
+            background-color: #007bff;
+            color: white;
+        }
 
-Use as informações abaixo para criar o site para mim.
+        /* Estilizando as seções <section> principais do conteúdo */
+        section {
+            /* 'background-color' branca para destacar o conteúdo do fundo da página. */
+            background-color: #ffffff;
+            
+            /* 'padding' para o conteúdo não grudar nas bordas da seção. */
+            padding: 30px;
+            
+            /* 'margin-top' para separar as seções da navegação e umas das outras. */
+            margin-top: 20px;
+            
+            /* 'border-radius' para arredondar os cantos da "folha" de conteúdo. */
+            border-radius: 15px;
+            
+            /* 'box-shadow' para dar uma leve profundidade, fazendo o conteúdo "flutuar". */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            
+            /* Por padrão, vamos esconder todas as seções (exceto a primeira) com JavaScript. */
+            display: none;
+        }
+        
+        /* Estilo para o <h2> (subtítulo) dentro de uma seção */
+        section h2 {
+            /* 'color' do subtítulo. Um azul mais escuro e elegante. */
+            color: #004a7c;
+            
+            /* 'border-bottom' cria uma linha sutil abaixo do título, para separar. */
+            border-bottom: 2px solid #00bfff; /* Usando o ciano/azul do cabeçalho */
+            
+            /* 'padding-bottom' adiciona um espaço entre o texto e a linha. */
+            padding-bottom: 10px;
+        }
+        
+        /* --- Estilos Específicos do Cardápio --- */
+        
+        /* Criamos uma "grade" (grid) para organizar os itens do cardápio */
+        .menu-grid {
+            /* 'display: grid;' ativa o layout de grade. */
+            display: grid;
+            
+            /* 'grid-template-columns' define as colunas. '1fr 1fr' cria duas colunas de tamanho igual. */
+            /* 'repeat(auto-fit, ...)' é mais avançado: ele cria quantas colunas couberem, com um tamanho mínimo de 300px. É ótimo para responsividade! */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            
+            /* 'gap' define o espaço (vão) entre os itens da grade. */
+            gap: 20px;
+        }
+        
+        /* Estilizando cada item individual do cardápio */
+        .menu-item {
+            /* 'border' cria uma borda sólida, de 1px, na cor azul clara. */
+            border: 1px solid #cce5ff;
+            
+            /* 'border-radius' para arredondar os cantos do "card". */
+            border-radius: 10px;
+            
+            /* 'padding' interna. */
+            padding: 20px;
+            
+            /* 'transition' para animar a sombra quando passarmos o mouse. */
+            transition: box-shadow 0.3s;
+        }
 
-1.  **O Tema Principal do Site:**
-    `cafeteria, lugar para ler livros, com uma livraria  no fundo
+        /* Efeito :hover para o item do cardápio */
+        .menu-item:hover {
+            /* 'box-shadow' aumenta a sombra ao passar o mouse, dando um efeito de "elevar". */
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
+        }
+        
+        /* Estilizando o preço do item */
+        .menu-item .preco {
+            /* 'font-weight: bold;' para destacar o preço. */
+            font-weight: bold;
+            
+            /* 'color' ciano. */
+            color: #17a2b8; /* Um tom de ciano */
+            
+            /* 'display: block;' faz o preço ocupar sua própria linha. */
+            display: block;
+            
+            /* 'margin-top' para espaçá-lo do nome do item. */
+            margin-top: 5px;
+        }
+        
+        /* Esta é a parte "interativa" que você pediu! */
+        .menu-item .inspiracao {
+            /* 'font-style: italic;' para deixar o texto em itálico. */
+            font-style: italic;
+            
+            /* 'color' mais suave. */
+            color: #555;
+            
+            /* 'font-size' um pouco menor. */
+            font-size: 0.9em;
+            
+            /* 'margin-top' para espaçar. */
+            margin-top: 10px;
+            
+            /* 'border-left' cria uma barrinha legal à esquerda do texto. */
+            border-left: 3px solid #00bfff;
+            
+            /* 'padding-left' para o texto não grudar na barrinha. */
+            padding-left: 10px;
+            
+            /* 'opacity: 0;' deixa a inspiração totalmente TRANSPARENTE (invisível). */
+            opacity: 0;
+            
+            /* 'max-height: 0;' faz o item ter altura zero (escondido). */
+            max-height: 0;
+            
+            /* 'overflow: hidden;' garante que o conteúdo não "vaze" enquanto está escondido. */
+            overflow: hidden;
+            
+            /* 'transition' para animar a aparição suavemente. */
+            transition: opacity 0.4s, max-height 0.4s;
+        }
+        
+        /* Mágica! Quando passamos o mouse (.menu-item:hover), o .inspiracao... */
+        .menu-item:hover .inspiracao {
+            /* 'opacity: 1;' fica totalmente VISÍVEL. */
+            opacity: 1;
+            
+            /* 'max-height: 100px;' dá espaço para ele aparecer (100px é um valor seguro). */
+            max-height: 100px;
+        }
+        
+        
+        /* --- Estilos Específicos do Formulário de Sugestão --- */
+        
+        /* Estilizando o <form> */
+        form {
+            /* 'display: grid;' vamos usar grid aqui também. */
+            display: grid;
+            
+            /* 'grid-template-columns: 1fr;' força uma única coluna. */
+            grid-template-columns: 1fr;
+            
+            /* 'gap' para espaçar os campos do formulário. */
+            gap: 15px;
+        }
+        
+        /* Estilizando os rótulos <label> (as perguntas do formulário) */
+        form label {
+            /* 'font-weight: bold;' para destacar. */
+            font-weight: bold;
+            
+            /* 'margin-bottom' de 5px (mas o 'gap' do grid já ajuda). */
+            margin-bottom: 5px;
+        }
 
-2.  **As Cores que Eu Gosto (Esquema de Cores):**
-    `[INSIRA AS CORES AQUI.  "azul e branco", "tons de lilais", "detalhes em ciano com fundo claro", "cores pasteis"]`
+        /* Estilizando os campos de entrada <input>, <select> e <textarea> */
+        form input,
+        form select,
+        form textarea {
+            /* 'width: 100%;' faz eles ocuparem toda a largura disponível. */
+            width: 100%;
+            
+            /* 'padding' para o texto não grudar na borda do campo. */
+            padding: 10px;
+            
+            /* 'border' com um azul suave. */
+            border: 1px solid #007bff;
+            
+            /* 'border-radius' para arredondar os campos. */
+            border-radius: 8px;
+            
+            /* 'box-sizing: border-box;' é uma regra importante que faz o 'padding' ser contado *para dentro* da largura, evitando que o campo "vaze" para fora. */
+            box-sizing: border-box;
+        }
+        
+        /* Estilizando o botão <button> do formulário */
+        form button {
+            /* 'background-color' ciano/azul, como você pediu. */
+            background-color: #17a2b8; /* Ciano */
+            
+            /* 'color' do texto branca. */
+            color: white;
+            
+            /* 'padding' para um botão "gordinho", fácil de clicar. */
+            padding: 12px 20px;
+            
+            /* 'border: none;' remove a borda feia padrão do botão. */
+            border: none;
+            
+            /* 'border-radius' para arredondar. */
+            border-radius: 8px;
+            
+            /* 'cursor: pointer;' muda o cursor do mouse para uma "mãozinha", indicando que é clicável. */
+            cursor: pointer;
+            
+            /* 'font-size' maior para o botão. */
+            font-size: 1.1em;
+            
+            /* 'font-weight' em negrito. */
+            font-weight: bold;
+            
+            /* 'transition' para animar a cor. */
+            transition: background-color 0.3s;
+        }
+        
+        /* Efeito :hover para o botão */
+        form button:hover {
+            /* 'background-color' escurece um pouco. */
+            background-color: #138496;
+        }
+        
+        /* * Estilo para a mensagem de sucesso do formulário.
+         * Ela começa escondida.
+        */
+        #mensagem-sucesso {
+            /* 'background-color' verde, indicando sucesso. */
+            background-color: #d4edda;
+            
+            /* 'color' do texto verde escuro. */
+            color: #155724;
+            
+            /* 'padding' interna. */
+            padding: 15px;
+            
+            /* 'border-radius' */
+            border-radius: 8px;
+            
+            /* 'border' */
+            border: 1px solid #c3e6cb;
+            
+            /* 'margin-top' para separar do formulário. */
+            margin-top: 20px;
+            
+            /* 'text-align' centralizado. */
+            text-align: center;
+            
+            /* 'display: none;' é o que a MANTÉM ESCONDIDA por padrão. */
+            display: none;
+        }
+        
+        /* --- Estilos do Rodapé <footer> --- */
+        footer {
+            /* 'text-align: center;' para centralizar o texto. */
+            text-align: center;
+            
+            /* 'margin-top' para separar do conteúdo. */
+            margin-top: 30px;
+            
+            /* 'padding' */
+            padding: 20px;
+            
+            /* 'color' do texto mais suave. */
+            color: #557a9c;
+            
+            /* 'font-size' menor. */
+            font-size: 0.9em;
+        }
 
-3.  **Meu Nome ou Apelido (para colocar no site):**
-    `coffee whith jesus`
+    </style>
+</head>
 
-4.  **Uma Interação Simples que Eu Gostaria (Opcional):**
-  "um botão que muda a cor do fundo", " o site tera uma aba de sugestaoes,onde os visitantes podem idicar livros cristãos para leitura ou compras.
-" também haverá um cardapio interativo,com cafés e comidas que tem nomes inspirados em verciculos biblicos
+<!-- A tag <body> (corpo) contém todo o conteúdo VISÍVEL do seu site. -->
+<body>
 
+    <!-- <header> é usado para o cabeçalho, geralmente contendo o título principal e o logo. -->
+    <header>
+        <!-- <h1> é a tag de título mais importante da página. Ótimo para o nome do seu café. -->
+        <h1>Coffee with Jesus</h1>
+        <!-- <p> é uma tag de parágrafo. Usamos para um slogan ou descrição. -->
+        <p>Onde a fé, o café e a literatura se encontram.</p>
+    </header>
 
----
+    <!-- Usamos nossa classe "container" para embrulhar o conteúdo principal e centralizá-lo. -->
+    <div class="container">
 
-### 💡 Regra de Resiliência (Se eu não preencher nada)
+        <!-- <nav> (navegação) agrupa os links principais do site. -->
+        <nav>
+            <!-- <a> é a tag de "âncora" (link). O 'href' diz para onde o link vai. -->
+            <!-- Usamos IDs (#) para navegar para seções *dentro* da mesma página. -->
+            <!-- Demos uma classe 'nav-link' para o JavaScript encontrar esses links. -->
+            <!-- O primeiro link também tem a classe 'active' para começar selecionado. -->
+            <a href="#menu" class="nav-link active">Cardápio</a>
+            <a href="#livraria" class="nav-link">Livraria</a>
+            <a href="#sugestoes" class="nav-link">Suas Sugestões</a>
+        </nav>
 
-**Importante:** Se eu deixar algum dos campos acima em branco (ou escrever "não sei" ou "qualquer coisa"), **NÃO pergunte para mim**.
+        <!-- <main> é o contêiner para o conteúdo principal da página. -->
+        <main>
+            <!-- 
+             * Esta é a primeira seção (aba).
+             * O 'id="menu"' é o "nome" que o link 'href="#menu"' usa para encontrar esta seção.
+             * 'style="display: block;"' está aqui para garantir que esta seja a *única* seção visível quando a página carregar.
+            -->
+            <section id="menu" style="display: block;">
+                <!-- <h2> é um subtítulo, menos importante que o <h1>. -->
+                <h2>Cardápio Celestial</h2>
+                <p>Nossas especialidades, cada uma inspirada em uma passagem para refletir.</p>
 
-Assuma o controle!
-* Se eu não der um **Tema**, escolha um tema divertido e universal (Ex: "Fatos Curiosos sobre o Universo", "Piadas de Programador", "Animais Fofos").
-* Se eu não der **Cores**, escolha um esquema de cores moderno e bonito (Ex: um "dark mode" com detalhes em ciano, ou um "light mode" com cores vibrantes).
-* Se eu não der uma **Interação**, crie uma você mesmo (como um botão de "clique-me" que mostra uma mensagem engraçada).
+                <!-- Aqui usamos a grade (grid) que definimos no CSS. -->
+                <div class="menu-grid">
+                    
+                    <!-- Primeiro item do cardápio -->
+                    <div class="menu-item">
+                        <!-- <h3> é um título de nível 3, perfeito para o nome de um item. -->
+                        <h3>Expresso Gênesis</h3>
+                        <span class="preco">R$ 8,00</span>
+                        <!-- Esta é a inspiração "escondida" que aparece no :hover -->
+                        <p class="inspiracao">"No princípio..." (Gênesis 1:1) - O começo perfeito para o seu dia.</p>
+                    </div>
 
-O objetivo é que eu **sempre** receba um código HTML completo e funcional, não importa o quão pouca informação eu dei.
+                    <!-- Segundo item do cardápio -->
+                    <div class="menu-item">
+                        <h3>Cappuccino Pão da Vida</h3>
+                        <span class="preco">R$ 12,00</span>
+                        <p class="inspiracao">"Eu sou o pão da vida." (João 6:35) - Sustenta e conforta a alma.</p>
+                    </div>
 
----
+                    <!-- Terceiro item do cardápio -->
+                    <div class="menu-item">
+                        <h3>Bolo Fonte de Água Viva</h3>
+                        <span class="preco">R$ 10,00 (fatia)</span>
+                        <p class="inspiracao">"...uma fonte de água a jorrar para a vida eterna." (João 4:14) - Doce e refrescante.</p>
+                    </div>
+                    
+                    <!-- Quarto item do cardápio -->
+                    <div class="menu-item">
+                        <h3>Chá de Frutos do Espírito</h3>
+                        <span class="preco">R$ 9,00</span>
+                        <p class="inspiracao">"...amor, alegria, paz, paciência, amabilidade, bondade, fidelidade..." (Gálatas 5:22-23) - Uma mistura que acalma.</p>
+                    </div>
+                </div>
+            </section>
 
-**Por favor, gere o código completo agora!*
+            <!-- 
+             * Segunda seção (aba).
+             * Ela começa escondida (sem 'style="display: block;"'). O CSS já define 'display: none;' para <section>.
+            -->
+            <section id="livraria">
+                <h2>Nossa Livraria</h2>
+                <p>No fundo do nosso café, temos um cantinho especial. Um refúgio com Bíblias de estudo, clássicos cristãos e os últimos lançamentos da literatura que edifica.</p>
+                <p>Pegue um livro, peça seu café e sinta-se em casa. Todos os livros estão disponíveis para leitura local ou compra.</p>
+            </section>
+
+            <!-- Terceira seção (aba), também escondida. -->
+            <section id="sugestoes">
+                <h2>Indique um Livro!</h2>
+                <p>Seu livro favorito pode ser a próxima leitura de alguém! Ajude nossa comunidade a crescer indicando livros cristãos e Bíblias que impactaram sua vida.</p>
+
+                <!-- <form> é usado para coletar dados do usuário. O 'id' ajuda o JavaScript a encontrá-lo. -->
+                <form id="form-sugestao">
+                    <!-- <label> é o rótulo do campo. O 'for' liga o rótulo ao 'id' do <input>. -->
+                    <label for="nome">Seu Nome (opcional):</label>
+                    <!-- <input type="text"> é um campo de texto simples. -->
+                    <input type="text" id="nome" name="nome">
+
+                    <!-- <select> é uma lista de opções (dropdown). -->
+                    <label for="tipo">Tipo de Indicação:</label>
+                    <select id="tipo" name="tipo">
+                        <!-- <option> é cada item da lista. -->
+                        <option value="livro">Livro Cristão</option>
+                        <option value="biblia">Bíblia (versão ou estudo)</option>
+                    </select>
+
+                    <label for="titulo">Título da Obra:</label>
+                    <input type="text" id="titulo" name="titulo" required> <!-- 'required' torna o campo obrigatório -->
+
+                    <!-- <textarea> é um campo de texto maior, para várias linhas. -->
+                    <label for="motivo">Por que você recomenda?</label>
+                    <textarea id="motivo" name="motivo" rows="4"></textarea>
+
+                    <!-- <button type="submit"> é o botão que "envia" o formulário. -->
+                    <button type="submit">Enviar Sugestão</button>
+                </form>
+                
+                <!-- 
+                 * Esta é a div que usaremos para mostrar a mensagem de sucesso.
+                 * Ela começa escondida (o CSS tem 'display: none;').
+                -->
+                <div id="mensagem-sucesso">
+                    Obrigado! Sua sugestão foi enviada com sucesso.
+                </div>
+            </section>
+        </main>
+
+    </div> <!-- Fim do .container -->
+
+    <!-- <footer> (rodapé) é a parte final da página. -->
+    <footer>
+        <p>&copy; 2025 Coffee with Jesus. Criado com ❤️ por você (e com uma ajudinha do Gemini)!</p>
+    </footer>
+
+    <!-- 
+      A tag <script> é onde colocamos nosso código JavaScript.
+      Colocamos no final do <body> para garantir que a página HTML (os botões, as seções)
+      já tenha sido carregada antes de o script tentar encontrá-los.
+    -->
+    <script>
+        // "window.addEventListener('DOMContentLoaded', ...)"
+        // Isso é um "ouvinte de evento". Ele diz ao navegador:
+        // "Ei, quando você terminar de carregar todo o HTML, por favor, execute o código que está aqui dentro."
+        // Isso evita erros de JavaScript tentando encontrar elementos que ainda não existem.
+        window.addEventListener('DOMContentLoaded', (event) => {
+            
+            // --- LÓGICA DAS ABAS (NAVEGAÇÃO) ---
+            
+            // 1. Encontrar os elementos
+            // 'document.querySelectorAll' encontra TODOS os elementos que batem com o seletor.
+            // Aqui, pegamos todos os links de navegação (que demos a classe '.nav-link').
+            // 'linksNavegacao' vira uma "lista" (NodeList) desses elementos.
+            const linksNavegacao = document.querySelectorAll('nav a.nav-link');
+            
+            // Aqui, pegamos todas as seções de conteúdo (tags <section> dentro do <main>).
+            const secoesConteudo = document.querySelectorAll('main section');
+            
+            
+            // 2. Função para esconder todas as seções
+            // Criamos uma "função" (um bloco de código reutilizável) para esconder todas as seções.
+            function esconderTodasSecoes() {
+                // 'forEach' é um loop. Ele diz: "Para cada 'secao' dentro da lista 'secoesConteudo'..."
+                secoesConteudo.forEach(secao => {
+                    // "...mude o estilo 'display' dela para 'none' (escondido)."
+                    secao.style.display = 'none';
+                });
+            }
+            
+            // 3. Função para remover a classe 'active' de todos os links
+            function removerClasseAtiva() {
+                // Loop: "Para cada 'link' dentro da lista 'linksNavegacao'..."
+                linksNavegacao.forEach(link => {
+                    // "...remova a classe 'active' dele."
+                    // 'classList.remove' é como gerenciamos as classes CSS de um elemento.
+                    link.classList.remove('active');
+                });
+            }
+
+            // 4. Adicionar o "ouvinte de clique" em cada link da navegação
+            // Loop: "Para cada 'link' na lista 'linksNavegacao'..."
+            linksNavegacao.forEach(link => {
+                
+                // "...adicione um 'ouvinte' que espera por um 'clique'."
+                // Quando o clique acontecer, execute a função que vem a seguir.
+                link.addEventListener('click', (evento) => {
+                    
+                    // 'evento.preventDefault()' é MUITO importante.
+                    // Ele impede o comportamento padrão do link (que seria pular/recarregar a página).
+                    // Nós queremos controlar o que acontece!
+                    evento.preventDefault();
+                    
+                    // Primeiro, chamamos nossas funções para "limpar" a tela.
+                    esconderTodasSecoes(); // Esconde tudo
+                    removerClasseAtiva(); // Remove o destaque de todos os links
+                    
+                    // Adiciona a classe 'active' APENAS no link que foi clicado.
+                    // 'link' (ou 'evento.currentTarget') é o próprio elemento <a> que sofreu o clique.
+                    link.classList.add('active');
+                    
+                    // 'link.getAttribute('href')' pega o valor do 'href'. Ex: "#menu" ou "#sugestoes".
+                    const idDaSecaoAlvo = link.getAttribute('href');
+                    
+                    // 'document.querySelector' encontra o PRIMEIRO elemento que bate com o seletor.
+                    // Então, se 'idDaSecaoAlvo' é "#menu", ele encontra o elemento <section id="menu">.
+                    const secaoAlvo = document.querySelector(idDaSecaoAlvo);
+                    
+                    // Finalmente, mudamos o estilo da seção alvo para 'block' (visível).
+                    secaoAlvo.style.display = 'block';
+                });
+            });
+
+            
+            // --- LÓGICA DO FORMULÁRIO DE SUGESTÃO ---
+            
+            // 1. Encontrar os elementos
+            // 'document.getElementById' encontra um único elemento pelo seu 'id'. É o método mais rápido.
+            const formulario = document.getElementById('form-sugestao');
+            const mensagemSucesso = document.getElementById('mensagem-sucesso');
+            
+            // 2. Adicionar "ouvinte" para o evento 'submit' (envio) do formulário.
+            // 'submit' é o evento disparado quando o botão <button type="submit"> é clicado.
+            formulario.addEventListener('submit', (evento) => {
+                
+                // 'evento.preventDefault()' de novo!
+                // Impede que o formulário tente enviar os dados para um servidor e recarregue a página.
+                // Nós vamos cuidar disso com JavaScript.
+                evento.preventDefault();
+                
+                // Em um site real, aqui nós enviaríamos os dados para um banco de dados.
+                // Como estamos aprendendo, vamos apenas fingir que funcionou!
+                
+                // 1. Mostrar a mensagem de sucesso
+                // Mudamos o estilo 'display' da mensagem de 'none' para 'block' (visível).
+                mensagemSucesso.style.display = 'block';
+                
+                // 2. Limpar o formulário
+                // 'formulario.reset()' magicamente limpa todos os campos do formulário.
+                formulario.reset();
+                
+                // 3. Esconder a mensagem depois de um tempo
+                // 'setTimeout' agenda uma função para rodar depois de um tempo (em milissegundos).
+                // 5000ms = 5 segundos.
+                setTimeout(() => {
+                    // O código aqui dentro só roda DEPOIS de 5 segundos.
+                    mensagemSucesso.style.display = 'none'; // Esconde a mensagem de novo.
+                }, 5000); // 5 segundos
+                
+            });
+            
+        }); // Fim do 'DOMContentLoaded'
+        
+    </script>
+
+</body>
+</html>
+ 
